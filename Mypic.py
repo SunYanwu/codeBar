@@ -36,10 +36,6 @@ def draw_code(ctx, code,r,g,b,x,y):
         if c=="1":
             ctx.rectangle(xpos, y, width_per_code, height_per_code)
             ctx.fill()
-def creatNoise():
-    for k in range(18):
-        ctx.arc(random.randint(1,100),random.randint(1,100),2,0,2)
-        ctx.stroke()
 
 if __name__ == '__main__':
     WIDTH, HEIGHT = 1600, 1600
@@ -58,6 +54,9 @@ if __name__ == '__main__':
             code = creatNumber("1234569852")
             draw_code(ctx,code,r,r,r,x,y)
             r = r +0.3
+            for k in range(15 * (y + 1)):  # 噪点添加
+                ctx.arc(random.randint(x, x+300), random.randint(y, y + 200), 0.5, 0, 0.5 * math.pi)
+                ctx.stroke()
     surface.write_to_png ("barcode1.png") # Output to PNG
 
 
