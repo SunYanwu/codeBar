@@ -52,11 +52,12 @@ if __name__ == '__main__':
     ctx.stroke()
     code = creatNumber("1234569852")
     for y in range(50,1600,400):
+        r = 0
         for x in range(50,1600,400):
             Number = random.randint(1000000000,9999999999)
             code = creatNumber("1234569852")
-            for i in range(0,1,2):
-                draw_code(ctx,code,0.2*i,0.2*i,0.2*i,x,y)
-    surface.write_to_png ("F://pic//barcode1.png") # Output to PNG
+            draw_code(ctx,code,r,r,r,x,y)
+            r = r +0.3
+    surface.write_to_png ("barcode1.png") # Output to PNG
 
 
